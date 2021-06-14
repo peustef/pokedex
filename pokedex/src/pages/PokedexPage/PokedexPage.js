@@ -1,10 +1,15 @@
 import React from "react";
 import Logo from "../../img/Logo.png";
-import PokeCard from "../../components/PokeCard/PokeCard";
 import { ImgContainer, Img, PokemonListContainer } from "./styled";
+import '../../App.css';
+import { useHistory } from "react-router-dom";
+import { goToHome } from "../../routes/coordinator";
+
 
 
 const PokedexPage = () => {
+  const history = useHistory()
+
   return (
     <div>
       <header>
@@ -15,14 +20,10 @@ const PokedexPage = () => {
           <h1>POKÉDEX</h1>
           <div className="Title">
             <p>POKÉDEX</p>
-            <p>VOLTAR PARA LISTA</p>
+            <p onClick={() => goToHome(history)}>VOLTAR PARA LISTA</p>
           </div>
         </div>
       </header>
-
-      <PokemonListContainer>
-        <PokeCard />
-      </PokemonListContainer>
 
     </div>
   );

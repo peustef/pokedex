@@ -1,8 +1,14 @@
 import React from "react";
 import Logo from "../../img/Logo.png";
 import { ImgContainer, Img } from "./styled";
+import '../../App.css';
+import { useHistory } from "react-router-dom";
+import { goBack } from "../../routes/coordinator";
+
 
 const DetailsPage = () => {
+  const history = useHistory()
+
   return (
     <header>
       <div className="Logo">
@@ -13,7 +19,7 @@ const DetailsPage = () => {
         <div className="Title">
           <p>NOME DE POKEMON</p>
           <button>ADICIONAR/REMOVER DA POKÉDEX</button>
-          <button>VOLTAR</button>
+          <button onClick={() => goBack(history)}>VOLTAR</button>
         </div>
       </div>
 

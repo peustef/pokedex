@@ -1,8 +1,14 @@
 import React from "react";
+import PokeCard from "../components/PokeCard/PokeCard";
 
 const HomePage = () => {
   return (
-      <p>Home</p>
+    <div>
+      <h1>Pokédex</h1>
+      <div>
+        <PokeCard />
+      </div>
+    </div>
   );
 };
 

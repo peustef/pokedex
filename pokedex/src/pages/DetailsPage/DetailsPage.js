@@ -1,20 +1,6 @@
 import React from "react";
-import Logo from "../img/Logo.png";
-import styled from "styled-components";
-import '../App.css';
-
-const ImgContainer = styled.div`
-  display: flex;
-  height: auto;
-  width: 5%;
-  padding-left: 10vh;
-
-`
-
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-`
+import Logo from "../../img/Logo.png";
+import { ImgContainer, Img } from "./styled";
 
 const DetailsPage = () => {
   return (

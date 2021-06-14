@@ -1,26 +1,8 @@
 import React from "react";
-import Logo from "../img/Logo.png";
-import styled from "styled-components";
-import '../App.css';
-import PokeCard from "../components/PokeCard/PokeCard";
+import Logo from "../../img/Logo.png";
+import PokeCard from "../../components/PokeCard/PokeCard";
+import { ImgContainer, Img, PokemonListContainer } from "./styled";
 
-const ImgContainer = styled.div`
-  display: flex;
-  height: auto;
-  width: 5%;
-  padding-left: 10vh;
-
-`
-
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-`
-
-const PokemonListContainer = styled.div`
-  display:flex;
-  justify-content:center;
-`
 
 const PokedexPage = () => {
   return (

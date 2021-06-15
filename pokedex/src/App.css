@@ -8,8 +8,30 @@ header {
   align-items: center;
 }
 
+h1 {
+  transition: 0.7s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.TitleHeader {
+  font-family: 'Elianto', sans-serif;
+}
+
+.PHeader {
+
+  transition: 0.3s ease-in-out;
+}
+
+.PHeader:hover, h1:hover {
+  cursor: pointer;
+  color: #989898;
+}
+
 .Logo {
-  background-color: #282c34;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) , rgba(40, 44, 52, 0.9));
   height: 10vh;
   width: 100vw;
   min-height: 1vh;
@@ -22,9 +44,13 @@ header {
 
 .Title {
   height: 10vh;
-  width: 35vw;
+  width: 45vw;
   padding-left: 30vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.ButtonsContainer {
+  margin-left: 3vw;
 }

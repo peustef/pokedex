@@ -1,10 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Logo from "../../img/Logo.png";
 import PokeCard from "../../components/PokeCard/PokeCard";
 import { ImgContainer, Img, PokemonListContainer } from "./styled";
+import { goToPokedex } from "../../routes/coordinator";
 import '../../App.css';
 
 const HomePage = () => {
+  const history = useHistory()
+
   return (
     <div>
       <header>
@@ -12,9 +16,9 @@ const HomePage = () => {
           <ImgContainer>
             <Img src={Logo}></Img>
           </ImgContainer>
-          <h1>POKÉDEX</h1>
+          <h1 onClick={() => goToPokedex(history)}>POKÉDEX</h1>
           <div className="Title">
-            <p>LISTA DE POKEMONS</p>
+            <p className="TitleHeader">LISTA DE POKEMONS</p>
           </div>
         </div>
       </header>

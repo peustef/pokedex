@@ -54,3 +54,45 @@ button:hover {
 .ButtonsContainer {
   margin-left: 3vw;
 }
+
+.ContainerDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.ContainerImgs {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5vh;
+  gap: 10px;
+}
+
+.ImgFront, .ImgBack {
+  width: 276.86px;
+  height: 276.86px;
+}
+
+.ContainerImgFront, .ContainerImgBack, .PokeStats, .PokeType, .PokeMoves {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.PokeType {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.PokeStats, .PokeMoves {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 55px;
+  height: 715px;
+  width: 15vw;
+}
+
+.PokeStats, .PokeMoves, .PokeType {
+  font-family:'Elianto', sans-serif;
+}

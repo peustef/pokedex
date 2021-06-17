@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { goToHome, goToPokedex } from "../../routes/coordinator";
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import PokeCard from "../../components/PokeCard/PokeCard";
 
 const StyledButton = withStyles({
   root: {
@@ -26,6 +27,7 @@ const StyledButton = withStyles({
 
 const PokedexPage = () => {
   const history = useHistory()
+  const currentPage = "pokedex"
 
   return (
     <div>
@@ -42,7 +44,7 @@ const PokedexPage = () => {
         </div>
       </header>
       <PokemonListContainer>
-
+        <PokeCard currentPage={currentPage} />
       </PokemonListContainer>
     </div>
   );

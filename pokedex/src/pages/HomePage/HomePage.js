@@ -8,6 +8,8 @@ import '../../App.css';
 
 const HomePage = () => {
   const history = useHistory()
+  const currentPage = "home"
+
 
   return (
     < div >
@@ -24,7 +26,7 @@ const HomePage = () => {
       </header>
 
       <PokemonListContainer>
-        <PokeCard />
+        <PokeCard currentPage={currentPage} />
       </PokemonListContainer>
 
     </div >

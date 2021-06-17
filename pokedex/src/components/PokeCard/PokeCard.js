@@ -5,8 +5,9 @@ import { BASE_URL } from "../../constants/urls";
 import { goToDetails } from "../../routes/coordinator";
 import { CardsContainer, PokemonCard, CardButtonsContainer, CardButtonLeft, CardButtonRight } from "./styled";
 
-const PokeCard = () => {
+const PokeCard = (props) => {
     const history = useHistory();
+    const [page, setPage] = useState("")
 
     const [pokeList, setPokeList] = useState([])
     const [pokeDetail, setPokeDetail] = useState([])
@@ -40,20 +41,30 @@ const PokeCard = () => {
 
     useEffect(() => {
         getPokemon()
-    }, [])
+        setPage(props.currentPage)
+    }, [setPage, props.currentPage])
 
     useEffect(() => {
         getDetail(pokeList)
     }, [pokeList])
 
+    const addRemoveButton = () => {
+        if (page === "home") {
+            return <CardButtonLeft>Adicionar ao Pokédex</CardButtonLeft>
+        } else if (page === "pokedex") {
+            return <CardButtonLeft>Remover do Pokédex</CardButtonLeft>
+        }
+    }
+
     return (
         <CardsContainer>
+            {console.log(page)}
             {pokeDetail && pokeDetail.map((poke) => {
                 return <PokemonCard key={poke.name}>
                     <p>#{poke.id} <strong>{poke.name}</strong></p>
                     <img alt={poke.name} src={poke.sprites.front_default} />
                     <CardButtonsContainer>
-                        <CardButtonLeft>Adicionar ao Pokédex</CardButtonLeft>
+                        {addRemoveButton()}
                         <CardButtonRight onClick={() => goToDetails(history, poke.name)}>Ver detalhes</CardButtonRight>
                     </CardButtonsContainer>
                 </PokemonCard>

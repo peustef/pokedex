@@ -27,6 +27,8 @@ const StyledButton = withStyles({
 
 const PokedexPage = (props) => {
   const history = useHistory()
+  const currentPage = "pokedex"
+
   return (
     <div>
       <header>
@@ -42,7 +44,9 @@ const PokedexPage = (props) => {
         </div>
       </header>
       <PokemonListContainer>
-        
+
+        <PokeCard currentPage={currentPage} />
+
       </PokemonListContainer>
     </div>
   );

@@ -41,7 +41,9 @@ const PokedexPage = () => {
           </div>
         </div>
       </header>
+      <PokemonListContainer>
 
+      </PokemonListContainer>
     </div>
   );
 };

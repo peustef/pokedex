@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../img/Logo.png";
 import { ImgContainer, Img, PokemonListContainer } from "./styled";
 import '../../App.css';
@@ -25,7 +25,7 @@ const StyledButton = withStyles({
   },
 })(Button);
 
-const PokedexPage = () => {
+const PokedexPage = (props) => {
   const history = useHistory()
   const currentPage = "pokedex"
 
@@ -44,7 +44,9 @@ const PokedexPage = () => {
         </div>
       </header>
       <PokemonListContainer>
+
         <PokeCard currentPage={currentPage} />
+
       </PokemonListContainer>
     </div>
   );

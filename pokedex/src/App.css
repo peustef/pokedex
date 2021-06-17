@@ -3,9 +3,11 @@
 }
 
 header {
+  box-shadow: #111010 1px 1px 16px 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0.9;
 }
 
 h1 {
@@ -52,7 +54,7 @@ button:hover {
 }
 
 .ButtonsContainer {
-  margin-left: 3vw;
+  margin-left: 0.1px;
 }
 
 .ContainerDetails {
@@ -76,6 +78,7 @@ button:hover {
 .ContainerImgFront, .ContainerImgBack, .PokeStats, .PokeType, .PokeMoves {
   padding: 20px;
   border-radius: 10px;
+  box-shadow: inset #3e3e3ea8 1px 1px 7px 2px;
   background-color: white;
 }
 

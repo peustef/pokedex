@@ -13,7 +13,7 @@ const Router = () => {
           <HomePage />
         </Route>
 
-        <Route exact path="/details">
+        <Route exact path="/details/:name">
           <DetailsPage />
         </Route>
 

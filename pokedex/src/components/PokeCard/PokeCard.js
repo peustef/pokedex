@@ -48,13 +48,13 @@ const PokeCard = () => {
 
     return (
         <CardsContainer>
-            {pokeDetail.map((poke) => {
+            {pokeDetail && pokeDetail.map((poke) => {
                 return <PokemonCard key={poke.name}>
                     <p>#{poke.id} <strong>{poke.name}</strong></p>
                     <img alt={poke.name} src={poke.sprites.front_default} />
                     <CardButtonsContainer>
                         <CardButtonLeft>Adicionar ao Pokédex</CardButtonLeft>
-                        <CardButtonRight onClick={() => goToDetails(history)}>Ver detalhes</CardButtonRight>
+                        <CardButtonRight onClick={() => goToDetails(history, poke.name)}>Ver detalhes</CardButtonRight>
                     </CardButtonsContainer>
                 </PokemonCard>
             })}

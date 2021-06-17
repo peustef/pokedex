@@ -37,12 +37,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const DetailsPage = () => {
+const DetailsPage = (props) => {
   const history = useHistory();
   const classes = useStyles();
   const params = useParams();
-  const [pokemon, setPokemon] = useState({})
-  const mainAttacks = pokemon.moves && pokemon.moves.slice(0, 10)
+  const [pokemon, setPokemon] = useState({});
+  const mainAttacks = pokemon.moves && pokemon.moves.slice(0, 10);
+  const {pokedex, setPokedex} = props;
 
 
   const getPokemonDetail = () => {
@@ -59,6 +60,17 @@ const DetailsPage = () => {
     getPokemonDetail()
   }, [])
 
+  const addToPokedex = (pokemonToPokedex) => {
+    const pokedexCopy = [...pokedex, pokemonToPokedex]
+    setPokedex(pokedexCopy)
+    alert('Pokemon adicionado à PokéDex')
+  }
+
+  const removeFromPokedex = () => {
+    // ------ Aqui vai a lógica para remover da pokedex ------- // 
+  }
+
+
   return (
     <div>
       <header>
@@ -70,7 +82,7 @@ const DetailsPage = () => {
           <div className="Title">
             <NameTitle className="TitleHeader">{pokemon.name}</NameTitle>
             <div className="ButtonsContainer">
-              <Button
+              <Button onClick={() => addToPokedex(pokemon)}
                 size="medium"
                 variant="contained"
                 color="default"
@@ -79,7 +91,7 @@ const DetailsPage = () => {
               >
                 ADICIONAR
               </Button>
-              <Button
+              <Button onClick={() => removeFromPokedex(pokemon)}
                 size="medium"
                 variant="contained"
                 color="secondary"

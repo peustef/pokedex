@@ -10,7 +10,7 @@ const HomePage = () => {
   const history = useHistory()
 
   return (
-    <div>
+    < div >
       <header>
         <div className="Logo">
           <ImgContainer>
@@ -27,7 +27,7 @@ const HomePage = () => {
         <PokeCard />
       </PokemonListContainer>
 
-    </div>
+    </div >
   );
 };
 

@@ -13,7 +13,7 @@ export const CardsContainer = styled.div`
 `
 
 export const PokemonCard = styled.div`
-    background-color: #F1F1F1;
+    background-color: #dddddd;
     width: 250px;
     height:250px;
     display:flex;

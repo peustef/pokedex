@@ -5,7 +5,9 @@ Nome dos integrantes:
 - Pedro Augusto Stefani Saldanha
 - Vitor Suzuki
 
+
 Link do Surge: https://paiva-pokedex3.surge.sh/
+
 
 O que funciona:
 
@@ -22,7 +24,7 @@ Tarefas básicas realizadas e Global State utilizado no projeto.
   - renderiza lista com todos os Pokémon já adicionados ao Pokédex ou aparece msg que o Pokédex está vazio.
   - botão "Remover do Pokédex" em cada card remove o pokémon específico do Pokédex (tirando o seu card da página) e retorna alert ao usuário.
   - botão "Ver detalhes" em cada card leva para página de detalhes do pokémon específico.
-  - - botão "Voltar para lista" no header retorna a página inicial.
+  - botão "Voltar para lista" no header retorna a página inicial.
 
 
 - Página detalhes

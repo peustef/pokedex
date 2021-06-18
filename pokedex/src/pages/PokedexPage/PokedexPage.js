@@ -29,19 +29,6 @@ const PokedexPage = (props) => {
   const history = useHistory()
   const currentPage = "pokedex"
 
-
-  const removePokemonToPokedex = (poke) => {
-    console.log("remove")
-    const filteredPokedex = props.pokedex.filter((pokeToRemove) => {
-      if (pokeToRemove.id === poke.id) {
-        return false
-      } else {
-        return true
-      }
-    })
-    props.setPokedex(filteredPokedex)
-  }
-
   return (
     <div>
       <header>
@@ -62,7 +49,7 @@ const PokedexPage = (props) => {
           currentPage={currentPage}
           pokedex={props.pokedex}
           setPokedex={props.setPokedex}
-          removePokemonToPokedex={removePokemonToPokedex}
+          removePokemonToPokedex={props.removePokemonToPokedex}
         />
 
       </PokemonListContainer>

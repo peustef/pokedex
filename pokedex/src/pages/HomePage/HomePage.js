@@ -10,27 +10,6 @@ const HomePage = (props) => {
   const history = useHistory()
   const currentPage = "home"
 
-  const addPokemonToPokedex = (poke) => {
-    const index = props.pokedex.findIndex((pokeInPokedex) => {
-      if (pokeInPokedex.id === poke.id) {
-        return true
-      } else {
-        return false
-      }
-    })
-    if (index === -1) {
-      const pokedexCopy = [...props.pokedex, poke]
-
-      props.setPokedex(pokedexCopy)
-      alert("Pokémon adicionado a sua Pokédex!")
-
-    } else {
-      alert("Você já tem esse Pokémon em sua Pokédex!")
-    }
-
-  }
-
-
   return (
     < div >
       <header>
@@ -50,7 +29,7 @@ const HomePage = (props) => {
           currentPage={currentPage}
           pokedex={props.pokedex}
           setPokedex={props.setPokedex}
-          addPokemonToPokedex={addPokemonToPokedex}
+          addPokemonToPokedex={props.addPokemonToPokedex}
         />
       </PokemonListContainer>
 

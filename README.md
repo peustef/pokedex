@@ -11,12 +11,12 @@ Link do Surge: https://paiva-pokedex3.surge.sh/
 
 O que funciona:
 
-Tarefas básicas realizadas e Global State utilizado no projeto.
+Tarefas principais realizadas e Global State utilizado no projeto.
 
 - Página inicial:
   - renderiza lista de 40 Pokémon com opção de adicionar a Pokédex ou aparece msg "carregando...".
   - botão "Adicionar ao Pokédex" em cada card adiciona o pokémon específico ao Pokédex (outra página) e retorna alert ao usuário.
-  - caso o pokémon já esteja na pokédex, o usuário recebe um alert o avisando.
+  - caso o Pokémon já esteja no Pokédex, o usuário recebe um alert o avisando.
   - botão "Pokédex" no header leva para página do pokédex.
   - botão "Ver detalhes" em cada card leva para página de detalhes do pokémon específico.
 
@@ -31,7 +31,7 @@ Tarefas básicas realizadas e Global State utilizado no projeto.
   - renderiza detalhes do Pokémon escolhido em outra página ou aparece msg que "carregando detalhes...".
   - botão "Remover do Pokédex" no header remove o pokémon específico do Pokédex e retorna alert ao usuário.
   - botão "Adicionar do Pokédex" no header adiciona o pokémon específico ao Pokédex e retorna alert ao usuário.
-  - caso o pokémon já esteja na pokédex, o usuário recebe um alert o avisando.
+  - caso o Pokémon já esteja no Pokédex, o usuário recebe um alert o avisando.
   - botão "Voltar" no header retorna a página anterior.
 
 

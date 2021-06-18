@@ -12,9 +12,6 @@ const PokeCard = (props) => {
     const [pokeList, setPokeList] = useState([])
     const [pokeDetail, setPokeDetail] = useState([])
 
-
-
-
     const getPokemon = () => {
         axios.get(`${BASE_URL}/?limit=40`)
             .then((res) => {
@@ -24,27 +21,6 @@ const PokeCard = (props) => {
                 alert(err.response)
             })
     }
-
-    const addPokemonToPokedex = (poke) => {
-        const index = props.pokedex.findIndex((pokeInPokedex) => {
-            if (pokeInPokedex.id === poke.id) {
-                return true
-            } else {
-                return false
-            }
-        })
-        if (index === -1) {
-            const pokedexCopy = [...props.pokedex, poke]
-
-            props.setPokedex(pokedexCopy)
-            alert("Pokémon adicionado a sua Pokédex!")
-
-        } else {
-            alert("Você já tem esse Pokémon em sua Pokédex!")
-        }
-
-    }
-    console.log(props.pokedex)
 
     const getDetail = (pokeList) => {
         const detailList = []
@@ -71,7 +47,7 @@ const PokeCard = (props) => {
         getDetail(pokeList)
     }, [pokeList])
 
-    const addRemoveButton = () => {
+    const renderCardPage = () => {
 
         if (page === "home") {
             return pokeDetail && pokeDetail.map((poke) => {
@@ -79,7 +55,7 @@ const PokeCard = (props) => {
                     <p>#{poke.id} <strong>{poke.name}</strong></p>
                     <img alt={poke.name} src={poke.sprites.front_default} />
                     <CardButtonsContainer>
-                        <CardButtonLeft onClick={() => addPokemonToPokedex(poke)}>Adicionar ao Pokédex</CardButtonLeft>
+                        <CardButtonLeft onClick={() => props.addPokemonToPokedex(poke)}>Adicionar ao Pokédex</CardButtonLeft>
                         <CardButtonRight onClick={() => goToDetails(history, poke.name)}>Ver detalhes</CardButtonRight>
                     </CardButtonsContainer>
                 </PokemonCard>
@@ -91,7 +67,7 @@ const PokeCard = (props) => {
                     <p>#{poke.id} <strong>{poke.name}</strong></p>
                     <img alt={poke.name} src={poke.sprites.front_default} />
                     <CardButtonsContainer>
-                        <CardButtonLeft>Remover do Pokédex</CardButtonLeft>
+                        <CardButtonLeft onClick={() => props.removePokemonToPokedex(poke)}>Remover do Pokédex</CardButtonLeft>
                         <CardButtonRight onClick={() => goToDetails(history, poke.name)}>Ver detalhes</CardButtonRight>
                     </CardButtonsContainer>
                 </PokemonCard>
@@ -99,9 +75,11 @@ const PokeCard = (props) => {
         }
     }
 
+
+
     return (
         <CardsContainer>
-            {addRemoveButton()}
+            {renderCardPage()}
         </CardsContainer>
     );
 };

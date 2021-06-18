@@ -6,7 +6,7 @@ import { ImgContainer, Img, PokemonListContainer } from "./styled";
 import { goToPokedex } from "../../routes/coordinator";
 import '../../App.css';
 
-const HomePage = () => {
+const HomePage = (props) => {
   const history = useHistory()
   const currentPage = "home"
 
@@ -26,7 +26,11 @@ const HomePage = () => {
       </header>
 
       <PokemonListContainer>
-        <PokeCard currentPage={currentPage} />
+        <PokeCard
+          currentPage={currentPage}
+          pokedex={props.pokedex}
+          setPokedex={props.setPokedex}
+        />
       </PokemonListContainer>
 
     </div >

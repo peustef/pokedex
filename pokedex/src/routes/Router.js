@@ -11,15 +11,15 @@ const Router = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <HomePage />
+          <HomePage pokedex={pokedex} setPokedex={setPokedex} />
         </Route>
 
         <Route exact path="/details/:name">
-          <DetailsPage pokedex={pokedex} setPokedex={setPokedex}/>
+          <DetailsPage pokedex={pokedex} setPokedex={setPokedex} />
         </Route>
 
         <Route exact path="/pokedex">
-          <PokedexPage pokedex={pokedex} />
+          <PokedexPage pokedex={pokedex} setPokedex={setPokedex} />
         </Route>
 
         <Route>

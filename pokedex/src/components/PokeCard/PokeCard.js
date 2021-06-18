@@ -13,6 +13,8 @@ const PokeCard = (props) => {
     const [pokeDetail, setPokeDetail] = useState([])
 
 
+
+
     const getPokemon = () => {
         axios.get(`${BASE_URL}/?limit=40`)
             .then((res) => {
@@ -22,6 +24,27 @@ const PokeCard = (props) => {
                 alert(err.response)
             })
     }
+
+    const addPokemonToPokedex = (poke) => {
+        const index = props.pokedex.findIndex((pokeInPokedex) => {
+            if (pokeInPokedex.id === poke.id) {
+                return true
+            } else {
+                return false
+            }
+        })
+        if (index === -1) {
+            const pokedexCopy = [...props.pokedex, poke]
+
+            props.setPokedex(pokedexCopy)
+            alert("Pokémon adicionado a sua Pokédex!")
+
+        } else {
+            alert("Você já tem esse Pokémon em sua Pokédex!")
+        }
+
+    }
+    console.log(props.pokedex)
 
     const getDetail = (pokeList) => {
         const detailList = []
@@ -49,28 +72,36 @@ const PokeCard = (props) => {
     }, [pokeList])
 
     const addRemoveButton = () => {
+
         if (page === "home") {
-            return <CardButtonLeft>Adicionar ao Pokédex</CardButtonLeft>
+            return pokeDetail && pokeDetail.map((poke) => {
+                return <PokemonCard key={poke.name}>
+                    <p>#{poke.id} <strong>{poke.name}</strong></p>
+                    <img alt={poke.name} src={poke.sprites.front_default} />
+                    <CardButtonsContainer>
+                        <CardButtonLeft onClick={() => addPokemonToPokedex(poke)}>Adicionar ao Pokédex</CardButtonLeft>
+                        <CardButtonRight onClick={() => goToDetails(history, poke.name)}>Ver detalhes</CardButtonRight>
+                    </CardButtonsContainer>
+                </PokemonCard>
+            })
+
         } else if (page === "pokedex") {
-            return <CardButtonLeft>Remover do Pokédex</CardButtonLeft>
+            return props.pokedex && props.pokedex.map((poke) => {
+                return <PokemonCard key={poke.name}>
+                    <p>#{poke.id} <strong>{poke.name}</strong></p>
+                    <img alt={poke.name} src={poke.sprites.front_default} />
+                    <CardButtonsContainer>
+                        <CardButtonLeft>Remover do Pokédex</CardButtonLeft>
+                        <CardButtonRight onClick={() => goToDetails(history, poke.name)}>Ver detalhes</CardButtonRight>
+                    </CardButtonsContainer>
+                </PokemonCard>
+            })
         }
     }
 
     return (
         <CardsContainer>
-            {console.log(page)}
-            {pokeDetail && pokeDetail.map((poke) => {
-                return <PokemonCard key={poke.name}>
-                    <p>#{poke.id} <strong>{poke.name}</strong></p>
-                    <img alt={poke.name} src={poke.sprites.front_default} />
-                    <CardButtonsContainer>
-                        {addRemoveButton()}
-                        <CardButtonRight onClick={() => goToDetails(history, poke.name)}>Ver detalhes</CardButtonRight>
-                    </CardButtonsContainer>
-                </PokemonCard>
-            })}
-
-
+            {addRemoveButton()}
         </CardsContainer>
     );
 };

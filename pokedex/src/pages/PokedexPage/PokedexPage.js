@@ -45,7 +45,12 @@ const PokedexPage = (props) => {
       </header>
       <PokemonListContainer>
 
-        <PokeCard currentPage={currentPage} />
+        <PokeCard
+          currentPage={currentPage}
+          pokedex={props.pokedex}
+          setPokedex={props.setPokedex}
+          removePokemonToPokedex={props.removePokemonToPokedex}
+        />
 
       </PokemonListContainer>
     </div>

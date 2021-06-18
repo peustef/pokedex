@@ -43,7 +43,7 @@ const DetailsPage = (props) => {
   const params = useParams();
   const [pokemon, setPokemon] = useState({});
   const mainAttacks = pokemon.moves && pokemon.moves.slice(0, 10);
-  const {pokedex, setPokedex} = props;
+  const { pokedex, setPokedex } = props;
 
 
   const getPokemonDetail = () => {
@@ -60,17 +60,6 @@ const DetailsPage = (props) => {
     getPokemonDetail()
   }, [])
 
-  const addToPokedex = (pokemonToPokedex) => {
-    const pokedexCopy = [...pokedex, pokemonToPokedex]
-    setPokedex(pokedexCopy)
-    alert('Pokemon adicionado à PokéDex')
-  }
-
-  const removeFromPokedex = () => {
-    // ------ Aqui vai a lógica para remover da pokedex ------- // 
-  }
-
-
   return (
     <div>
       <header>
@@ -82,7 +71,7 @@ const DetailsPage = (props) => {
           <div className="Title">
             <NameTitle className="TitleHeader">{pokemon.name}</NameTitle>
             <div className="ButtonsContainer">
-              <Button onClick={() => addToPokedex(pokemon)}
+              <Button onClick={() => props.addPokemonToPokedex(pokemon)}
                 size="medium"
                 variant="contained"
                 color="default"
@@ -91,7 +80,7 @@ const DetailsPage = (props) => {
               >
                 ADICIONAR
               </Button>
-              <Button onClick={() => removeFromPokedex(pokemon)}
+              <Button onClick={() => props.removePokemonToPokedex(pokemon)}
                 size="medium"
                 variant="contained"
                 color="secondary"

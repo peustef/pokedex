@@ -12,7 +12,6 @@ const PokeCard = (props) => {
     const [pokeList, setPokeList] = useState([])
     const [pokeDetail, setPokeDetail] = useState([])
 
-
     const getPokemon = () => {
         axios.get(`${BASE_URL}/?limit=40`)
             .then((res) => {
@@ -48,29 +47,39 @@ const PokeCard = (props) => {
         getDetail(pokeList)
     }, [pokeList])
 
-    const addRemoveButton = () => {
-        if (page === "home") {
-            return <CardButtonLeft>Adicionar ao Pokédex</CardButtonLeft>
-        } else if (page === "pokedex") {
-            return <CardButtonLeft>Remover do Pokédex</CardButtonLeft>
-        }
-    }
+    const renderCardPage = () => {
 
-    return (
-        <CardsContainer>
-            {console.log(page)}
-            {pokeDetail && pokeDetail.map((poke) => {
+        if (page === "home") {
+            return pokeDetail && pokeDetail.map((poke) => {
                 return <PokemonCard key={poke.name}>
                     <p>#{poke.id} <strong>{poke.name}</strong></p>
                     <img alt={poke.name} src={poke.sprites.front_default} />
                     <CardButtonsContainer>
-                        {addRemoveButton()}
+                        <CardButtonLeft onClick={() => props.addPokemonToPokedex(poke)}>Adicionar ao Pokédex</CardButtonLeft>
                         <CardButtonRight onClick={() => goToDetails(history, poke.name)}>Ver detalhes</CardButtonRight>
                     </CardButtonsContainer>
                 </PokemonCard>
-            })}
+            })
+
+        } else if (page === "pokedex") {
+            return props.pokedex && props.pokedex.map((poke) => {
+                return <PokemonCard key={poke.name}>
+                    <p>#{poke.id} <strong>{poke.name}</strong></p>
+                    <img alt={poke.name} src={poke.sprites.front_default} />
+                    <CardButtonsContainer>
+                        <CardButtonLeft onClick={() => props.removePokemonToPokedex(poke)}>Remover do Pokédex</CardButtonLeft>
+                        <CardButtonRight onClick={() => goToDetails(history, poke.name)}>Ver detalhes</CardButtonRight>
+                    </CardButtonsContainer>
+                </PokemonCard>
+            })
+        }
+    }
 
 
+
+    return (
+        <CardsContainer>
+            {renderCardPage()}
         </CardsContainer>
     );
 };

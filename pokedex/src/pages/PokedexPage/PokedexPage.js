@@ -19,6 +19,9 @@ const StyledButton = withStyles({
     marginLeft: '70px',
     boxShadow: '0 3px 5px 2px rgba(255, 255, 255, .3)',
     transition: '0.3s ease-in-out',
+    ['@media (max-width:768px)']: {
+      display: 'none',
+    },
   },
   label: {
     textTransform: 'capitalize',
@@ -36,7 +39,7 @@ const PokedexPage = (props) => {
           <ImgContainer>
             <Img src={Logo}></Img>
           </ImgContainer>
-          <h1 onClick={() => goToPokedex(history)}>POKÉDEX</h1>
+          {/* <h1 onClick={() => goToPokedex(history)}>POKÉDEX</h1> */}
           <div className="Title">
             <p className="TitleHeader">POKÉDEX</p>
             <StyledButton className="PHeader" onClick={() => goToHome(history)}>VOLTAR PARA LISTA</StyledButton>

@@ -20,18 +20,34 @@ const StyledButton = withStyles({
     color: 'white',
     height: 36.5,
     padding: '0 15px',
-    marginLeft: '70px',
+    marginLeft: '7rem',
+    marginRight: '1rem',
     boxShadow: '0 3px 5px 2px rgba(255, 255, 255, .3)',
     transition: '0.3s ease-in-out',
+    ['@media (max-width:1640px)']: {
+      marginTop: '0.5rem',
+      marginRight: '10rem',
+    },
+    ['@media (max-width:1368px)']: {
+      marginRight: '15rem',
+    },
+    ['@media (max-width:1257px)']: {
+      marginRight: '20rem',
+    },
+
+    
   },
   label: {
     textTransform: 'capitalize',
   },
 })(Button);
 
+
+
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
+    
   },
 }));
 
@@ -65,13 +81,13 @@ const DetailsPage = (props) => {
       <header>
         <div className="Logo">
           <ImgContainer>
-            <Img src={Logo}></Img>
+            <Img className="PokeBall" onClick={() => goToPokedex(history)} src={Logo}></Img>
           </ImgContainer>
-          <h1 onClick={() => goToPokedex(history)}>POKÉDEX</h1>
+          <h1 className="Pokedex" onClick={() => goToPokedex(history)}>POKÉDEX</h1>
           <div className="Title">
             <NameTitle className="TitleHeader">{pokemon.name}</NameTitle>
             <div className="ButtonsContainer">
-              <Button onClick={() => props.addPokemonToPokedex(pokemon)}
+              <Button className="AddButton" onClick={() => props.addPokemonToPokedex(pokemon)}
                 size="medium"
                 variant="contained"
                 color="default"
@@ -80,7 +96,7 @@ const DetailsPage = (props) => {
               >
                 ADICIONAR
               </Button>
-              <Button onClick={() => props.removePokemonToPokedex(pokemon)}
+              <Button className="RemoveButton" onClick={() => props.removePokemonToPokedex(pokemon)}
                 size="medium"
                 variant="contained"
                 color="secondary"
@@ -94,8 +110,29 @@ const DetailsPage = (props) => {
                 VOLTAR
               </StyledButton>
             </div>
+            <div className="HiddenButtons">
+              <Button onClick={() => props.addPokemonToPokedex(pokemon)}
+                size="medium"
+                variant="contained"
+                color="default"
+                className={classes.button}
+                endIcon={<Icon>send</Icon>}
+              />
+
+              <Button onClick={() => props.removePokemonToPokedex(pokemon)}
+                size="medium"
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                endIcon={<DeleteIcon />}
+              />
+
+            </div>
           </div>
+
         </div>
+
+
 
       </header>
       <div className="ContainerDetails">
@@ -117,7 +154,7 @@ const DetailsPage = (props) => {
           </div>
         </div>
         <div className="PokeStats">
-          <h1>Poderes</h1>
+          <h3>Poderes</h3>
           <p>hp: {pokemon.stats && pokemon.stats[0].base_stat}</p>
           <p>attack: {pokemon.stats && pokemon.stats[1].base_stat}</p>
           <p>defense: {pokemon.stats && pokemon.stats[2].base_stat}</p>
@@ -127,7 +164,7 @@ const DetailsPage = (props) => {
         </div>
 
         <div className="PokeMoves">
-          <h1>Principais Ataques</h1>
+          <h3>Principais Ataques</h3>
           {mainAttacks && mainAttacks.map((move) => {
             return <p key={move.move.name}>{move.move.name}</p>
           })}

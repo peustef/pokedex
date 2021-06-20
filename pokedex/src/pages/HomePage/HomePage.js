@@ -27,9 +27,6 @@ const HomePage = (props) => {
       <PokemonListContainer>
         <PokeCard
           currentPage={currentPage}
-          pokedex={props.pokedex}
-          setPokedex={props.setPokedex}
-          addPokemonToPokedex={props.addPokemonToPokedex}
         />
       </PokemonListContainer>
 

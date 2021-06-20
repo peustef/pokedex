@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Logo from "../../img/Logo.png";
-import { ImgContainer, Img, PokemonListContainer } from "./styled";
+import { ImgContainer, Img, PokemonListContainer, StyledButton } from "./styled";
 import '../../App.css';
 import { useHistory } from "react-router-dom";
 import { goToHome, goToPokedex } from "../../routes/coordinator";
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import PokeCard from "../../components/PokeCard/PokeCard";
+
 
 const StyledButton = withStyles({
   root: {
@@ -27,6 +26,7 @@ const StyledButton = withStyles({
     textTransform: 'capitalize',
   },
 })(Button);
+
 
 const PokedexPage = (props) => {
   const history = useHistory()
@@ -50,9 +50,6 @@ const PokedexPage = (props) => {
 
         <PokeCard
           currentPage={currentPage}
-          pokedex={props.pokedex}
-          setPokedex={props.setPokedex}
-          removePokemonToPokedex={props.removePokemonToPokedex}
         />
 
       </PokemonListContainer>

@@ -5,6 +5,7 @@ import '../../App.css';
 import { useHistory } from "react-router-dom";
 import { goToHome, goToPokedex } from "../../routes/coordinator";
 import PokeCard from "../../components/PokeCard/PokeCard";
+import BackgroundClouds from '../../img/BackgroundClouds.jpg';
 
 
 
@@ -14,10 +15,13 @@ const PokedexPage = (props) => {
 
   return (
     <div>
+      <div className="BackgroundContainer">
+        <img className="Background" src={BackgroundClouds}></img>
+      </div>
       <header>
         <div className="Logo">
           <ImgContainer>
-            <Img src={Logo}></Img>
+            <Img className="PokeBall" src={Logo}></Img>
           </ImgContainer>
           {/* <h1 onClick={() => goToPokedex(history)}>POKÉDEX</h1> */}
           <div className="Title">

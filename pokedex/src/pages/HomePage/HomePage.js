@@ -4,6 +4,8 @@ import Logo from "../../img/Logo.png";
 import PokeCard from "../../components/PokeCard/PokeCard";
 import { ImgContainer, Img, PokemonListContainer } from "./styled";
 import { goToPokedex } from "../../routes/coordinator";
+import BackgroundClouds from '../../img/BackgroundClouds.jpg';
+import PokedexLogo from '../../img/PokédexLogo.png';
 import '../../App.css';
 
 const HomePage = (props) => {
@@ -12,12 +14,17 @@ const HomePage = (props) => {
 
   return (
     < div >
+      <div className="BackgroundContainer">
+        <img className="Background" src={BackgroundClouds}></img>
+      </div>
       <header>
         <div className="Logo">
           <ImgContainer>
-            <Img  onClick={() => goToPokedex(history)} src={Logo}></Img>
+            <Img className="PokeBall" onClick={() => goToPokedex(history)} src={Logo}></Img>
           </ImgContainer>
-          <h1 id="PokedexTitle" onClick={() => goToPokedex(history)}>POKÉDEX</h1>
+          <div id="PokedexTitle" onClick={() => goToPokedex(history)}>
+            <img id="PokedexLogo" src={PokedexLogo}></img>
+          </div>
           <div className="Title">
             <p className="TitleHeader">LISTA DE POKEMONS</p>
           </div>

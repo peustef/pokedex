@@ -43,9 +43,22 @@ export const StyledButton = withStyles({
     color: 'white',
     height: 36.5,
     padding: '0 15px',
-    marginLeft: '70px',
+    marginLeft: '7rem',
+    marginRight: '1rem',
     boxShadow: '0 3px 5px 2px rgba(255, 255, 255, .3)',
     transition: '0.3s ease-in-out',
+    ['@media (max-width:1640px)']: {
+      marginTop: '0.5rem',
+      marginRight: '10rem',
+    },
+    ['@media (max-width:1368px)']: {
+      marginRight: '15rem',
+    },
+    ['@media (max-width:1257px)']: {
+      marginRight: '20rem',
+    },
+
+
   },
   label: {
     textTransform: 'capitalize',
@@ -55,5 +68,6 @@ export const StyledButton = withStyles({
 export const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
+
   },
 }));

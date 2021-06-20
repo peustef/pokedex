@@ -15,9 +15,9 @@ const HomePage = (props) => {
       <header>
         <div className="Logo">
           <ImgContainer>
-            <Img src={Logo}></Img>
+            <Img  onClick={() => goToPokedex(history)} src={Logo}></Img>
           </ImgContainer>
-          <h1 onClick={() => goToPokedex(history)}>POKÉDEX</h1>
+          <h1 id="PokedexTitle" onClick={() => goToPokedex(history)}>POKÉDEX</h1>
           <div className="Title">
             <p className="TitleHeader">LISTA DE POKEMONS</p>
           </div>

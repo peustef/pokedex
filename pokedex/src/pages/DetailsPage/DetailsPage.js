@@ -12,6 +12,46 @@ import { BASE_URL } from "../../constants/urls";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 
 
+const StyledButton = withStyles({
+  root: {
+    background: 'linear-gradient(45deg, #282c34 30%, #444b59 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 36.5,
+    padding: '0 15px',
+    marginLeft: '7rem',
+    marginRight: '1rem',
+    boxShadow: '0 3px 5px 2px rgba(255, 255, 255, .3)',
+    transition: '0.3s ease-in-out',
+    ['@media (max-width:1640px)']: {
+      marginTop: '0.5rem',
+      marginRight: '10rem',
+    },
+    ['@media (max-width:1368px)']: {
+      marginRight: '15rem',
+    },
+    ['@media (max-width:1257px)']: {
+      marginRight: '20rem',
+    },
+
+    
+  },
+  label: {
+    textTransform: 'capitalize',
+  },
+})(Button);
+
+
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+    
+  },
+}));
+
+
 const DetailsPage = (props) => {
   const history = useHistory();
   const classes = useStyles();
@@ -42,13 +82,13 @@ const DetailsPage = (props) => {
           <header>
             <div className="Logo">
               <ImgContainer>
-                <Img alt="logo" src={Logo}></Img>
+                <Img className="PokeBall" alt="logo" src={Logo}></Img>
               </ImgContainer>
-              <h1 onClick={() => goToPokedex(history)}>POKÉDEX</h1>
+              <h1 className="Pokedex" onClick={() => goToPokedex(history)}>POKÉDEX</h1>
               <div className="Title">
                 <NameTitle className="TitleHeader">{pokemon.name}</NameTitle>
                 <div className="ButtonsContainer">
-                  <Button onClick={() => addPokemonToPokedex(pokemon)}
+                  <Button className="AddButton" onClick={() => addPokemonToPokedex(pokemon)}
                     size="medium"
                     variant="contained"
                     color="default"
@@ -57,7 +97,7 @@ const DetailsPage = (props) => {
                   >
                     ADICIONAR
                   </Button>
-                  <Button onClick={() => removePokemonToPokedex(pokemon)}
+                  <Button className="RemoveButton" onClick={() => removePokemonToPokedex(pokemon)}
                     size="medium"
                     variant="contained"
                     color="secondary"
@@ -70,6 +110,24 @@ const DetailsPage = (props) => {
                     onClick={() => goBack(history)}>
                     VOLTAR
                   </StyledButton>
+                </div>
+                <div className="HiddenButtons">
+                  <Button onClick={() => addPokemonToPokedex(pokemon)}
+                    size="medium"
+                    variant="contained"
+                    color="default"
+                    className={classes.button}
+                    endIcon={<Icon>send</Icon>}
+                  />
+
+                    <Button onClick={() => removePokemonToPokedex(pokemon)}
+                      size="medium"
+                      variant="contained"
+                      color="secondary"
+                      className={classes.button}
+                      endIcon={<DeleteIcon />}
+                    />
+
                 </div>
               </div>
             </div>

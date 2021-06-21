@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Logo from "../../img/Logo.png";
-import { ImgContainer, Img, NameTitle, StyledButton, useStyles } from "./styled";
+import { ImgContainer, BackgroundImgContainer, Background, Img, NameTitle, StyledButton, useStyles } from "./styled";
 import '../../App.css';
 import { useHistory, useParams } from "react-router-dom";
 import { goBack, goToPokedex } from "../../routes/coordinator";
@@ -10,6 +10,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import axios from "axios";
 import { BASE_URL } from "../../constants/urls";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
+import BackgroundClouds from '../../img/BackgroundClouds.jpg';
+import PokedexLogo from '../../img/PokédexLogo.png';
 
 
 
@@ -40,12 +42,17 @@ const DetailsPage = (props) => {
     <div>
       {pokemon.name ? (
         <div>
+          <div className="BackgroundContainer">
+            <img className="Background" src={BackgroundClouds}></img>
+          </div>
           <header>
             <div className="Logo">
               <ImgContainer>
-                <Img className="PokeBall" alt="logo" src={Logo}></Img>
+                <Img onClick={() => goToPokedex(history)} className="PokeBall" alt="logo" src={Logo}></Img>
               </ImgContainer>
-              <h1 className="Pokedex" onClick={() => goToPokedex(history)}>POKÉDEX</h1>
+              <div id="PokedexTitle" onClick={() => goToPokedex(history)}>
+                <img id="PokedexLogo" src={PokedexLogo}></img>
+              </div>
               <div className="Title">
                 <NameTitle className="TitleHeader">{pokemon.name}</NameTitle>
                 <div className="ButtonsContainer">
